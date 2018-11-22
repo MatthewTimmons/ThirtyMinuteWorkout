@@ -1,5 +1,6 @@
 package thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
@@ -19,9 +20,10 @@ class SelectWorkoutActivity: AppCompatActivity() {
         manualWorkoutButton = findViewById(R.id.manual_workout_button)
         timedWorkoutButton = findViewById(R.id.timed_workout_button)
 
-        // TODO Add manual workout later.
+        // Set click listeners
         manualWorkoutButton.setOnClickListener {
-            Toast.makeText(this@SelectWorkoutActivity, "This feature will be added later.", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this@SelectWorkoutActivity, PerformWorkoutActivity::class.java)
+            startActivity(intent)
         }
 
         //TODO Add timed workout later.

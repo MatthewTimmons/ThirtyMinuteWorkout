@@ -5,4 +5,7 @@
     <string name="cutom_workout">Cutom Workout</string>
     <string name="manual_workout">Manual Workout</string>
     <string name="timed_workout">Timed workout</string>
+    <string name="previous_weight">Previous Weight</string>
+    <string name="previous_reps">Previous Reps</string>
+    <string name="save_workout">Save workout</string>
 </resources>
