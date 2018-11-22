@@ -6,6 +6,21 @@
         <item name="colorPrimary">@color/colorPrimary</item>
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:windowBackground">@color/colorPrimaryDark</item>
+        <item name="android:buttonStyle">@style/yellowButton</item>
+    </style>
+
+    <style name="redButton">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="greenButton">
+        <item name="android:textColor">@android:color/white</item>
+    </style>
+
+    <style name="yellowButton" parent="android:style/Widget.Button">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:background">@color/yellow</item>
     </style>
 
 </resources>
