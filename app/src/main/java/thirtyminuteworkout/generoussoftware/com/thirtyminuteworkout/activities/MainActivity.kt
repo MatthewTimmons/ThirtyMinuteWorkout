@@ -1,10 +1,12 @@
-package thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout
+package thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.activities
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.view.View
 import android.widget.Button
 import android.widget.Toast
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.R
 
 class MainActivity : AppCompatActivity() {
     lateinit var thirtyMinuteWorkoutButton: Button
@@ -18,15 +20,15 @@ class MainActivity : AppCompatActivity() {
         thirtyMinuteWorkoutButton = findViewById(R.id.thirty_minute_workout_button)
         customWorkoutButton = findViewById(R.id.custom_workout_button)
 
-        // TODO Set up intent to start next activity
-        thirtyMinuteWorkoutButton.setOnClickListener(View.OnClickListener {
-            Toast.makeText(this@MainActivity, "This feature will be added later.", Toast.LENGTH_SHORT).show()
-        })
+        thirtyMinuteWorkoutButton.setOnClickListener {
+            val intent = Intent(this@MainActivity, SelectWorkoutActivity::class.java)
+            startActivity(intent)
+        }
 
         // TODO Set up custom workout options
-        customWorkoutButton.setOnClickListener(View.OnClickListener {
+        customWorkoutButton.setOnClickListener {
             Toast.makeText(this@MainActivity, "This feature will be added later.", Toast.LENGTH_SHORT).show()
-        })
+        }
 
     }
 }
