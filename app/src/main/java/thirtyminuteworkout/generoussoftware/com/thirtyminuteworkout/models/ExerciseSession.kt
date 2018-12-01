@@ -9,6 +9,7 @@ class ExerciseSession(
         var id: Int?,
         var dateTimeInEpoch: Long, // Should be equal to the parent workoutSession
         val name: String,
+        val machineNumber: Int,
         var weight: Int = 0,
         var notes: String = ""
         // var reps: Int,     || Maybe add reps for custom workouts?

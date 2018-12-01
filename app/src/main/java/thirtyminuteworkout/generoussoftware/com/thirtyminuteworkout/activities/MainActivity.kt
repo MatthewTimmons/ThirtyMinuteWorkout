@@ -1,5 +1,6 @@
 package thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.activities
 
+import android.arch.lifecycle.Observer
 import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
@@ -36,5 +37,10 @@ class MainActivity : AppCompatActivity() {
             Toast.makeText(this@MainActivity, "This feature will be added later.", Toast.LENGTH_SHORT).show()
         }
 
+        // Testing viewmodel's ability to access the data
+//        var viewModel = ViewModelProviders.of(this).get(AppViewModel::class.java)
+//        viewModel.fetchAllExerciseSessions().observe(this, Observer {
+//            Toast.makeText(this@MainActivity, it?.get(0)?.name, Toast.LENGTH_LONG).show()
+//        })
     }
 }

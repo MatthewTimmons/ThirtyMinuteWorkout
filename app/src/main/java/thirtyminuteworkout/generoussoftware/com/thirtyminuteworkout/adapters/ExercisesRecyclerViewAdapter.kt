@@ -8,10 +8,11 @@ import kotlinx.android.synthetic.main.activity_perform_workout.view.*
 import kotlinx.android.synthetic.main.item_exercise.view.*
 import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.R
 import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.Exercise
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.ExerciseSession
 
 val buttonValues = arrayOf(-5, -1, 1, 5)
 
-class ExercisesRecyclerViewAdapter(var exercises:List<Exercise>, val customWorkoutFlag:Boolean = false):
+class ExercisesRecyclerViewAdapter(var exercises:List<ExerciseSession>, val customWorkoutFlag:Boolean = false):
         RecyclerView.Adapter<ExercisesRecyclerViewAdapter.ExerciseViewHolder>() {
 
     override fun onCreateViewHolder(viewGroup: ViewGroup, parent: Int): ExerciseViewHolder {

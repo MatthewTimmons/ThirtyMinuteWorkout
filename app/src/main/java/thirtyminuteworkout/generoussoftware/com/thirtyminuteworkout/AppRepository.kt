@@ -11,6 +11,7 @@ class AppRepository(application: Application) {
 
     var database = AppDatabase.getInstance(application)
     var workoutDao = database?.workoutDao()!!
+    var allExerciseSessions = workoutDao.fetchAllExerciseSessions()
 
     fun insert(exerciseSession: ExerciseSession) {
         InsertExerciseAsyncTask(workoutDao).execute(exerciseSession)
@@ -20,12 +21,27 @@ class AppRepository(application: Application) {
         InsertWorkoutAsyncTask(workoutDao).execute(workoutSession)
     }
 
+    fun insert(exerciseSessions: List<ExerciseSession>) {
+        InsertExercisesAsyncTask(workoutDao).execute(exerciseSessions)
+    }
+
     companion object {
         private class InsertExerciseAsyncTask(workoutDao: WorkoutDao) : AsyncTask<ExerciseSession, Void, Void>() {
             private var workoutDao: WorkoutDao = workoutDao
 
             override fun doInBackground(vararg params: ExerciseSession?): Void? {
                 workoutDao.insert(params[0]!!)
+                return null
+            }
+        }
+
+        private class InsertExercisesAsyncTask(workoutDao: WorkoutDao) : AsyncTask<List<ExerciseSession>, Void, Void>() {
+            private var workoutDao: WorkoutDao = workoutDao
+
+            override fun doInBackground(vararg params: List<ExerciseSession>?): Void? {
+                params[0]!!.forEach {
+                    workoutDao.insert(it)
+                }
                 return null
             }
         }
