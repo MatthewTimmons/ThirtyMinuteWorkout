@@ -1,12 +1,18 @@
 package thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.activities
 
+import android.arch.lifecycle.ViewModelProviders
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.view.View
+import android.util.Log
 import android.widget.Button
 import android.widget.Toast
 import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.R
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.Room.AppDatabase
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.AppViewModel
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.ExerciseSession
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.ThirtyMinuteWorkout
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.WorkoutSession
 
 class MainActivity : AppCompatActivity() {
     lateinit var thirtyMinuteWorkoutButton: Button

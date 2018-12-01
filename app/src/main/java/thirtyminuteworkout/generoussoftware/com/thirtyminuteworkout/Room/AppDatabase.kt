@@ -4,10 +4,10 @@ import android.arch.persistence.room.Database
 import android.arch.persistence.room.Room
 import android.arch.persistence.room.RoomDatabase
 import android.content.Context
-import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.Exercise
-import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.Workout
+import android.os.AsyncTask
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.*
 
-@Database(entities = arrayOf(Workout::class, Exercise::class), version = 1)
+@Database(entities = [WorkoutSession::class, ExerciseSession::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun workoutDao(): WorkoutDao
@@ -18,9 +18,10 @@ abstract class AppDatabase : RoomDatabase() {
         fun getInstance(context: Context): AppDatabase? {
             if (INSTANCE == null) {
                 synchronized(AppDatabase::class) {
-                    INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
-                            AppDatabase::class.java, "workouts.db")
-                            .build()
+                    INSTANCE = Room.databaseBuilder(
+                            context.applicationContext,
+                            AppDatabase::class.java, "database"
+                    ).build()
                 }
             }
             return INSTANCE
@@ -30,5 +31,4 @@ abstract class AppDatabase : RoomDatabase() {
             INSTANCE = null
         }
     }
-
 }

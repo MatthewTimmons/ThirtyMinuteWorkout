@@ -4,10 +4,10 @@ import android.arch.persistence.room.Entity
 import android.arch.persistence.room.PrimaryKey
 import java.util.ArrayList
 
-@Entity
-class ThirtyMinuteWorkout : Workout("Thirty Minute Workout") {
-
-    @PrimaryKey(autoGenerate = true) var id: Int? = null
+class ThirtyMinuteWorkout(
+        val name: String = "Thirty Minute Workout",
+        var exerciseList: ArrayList<Exercise> = ArrayList()
+) {
 
     init {
         exerciseList = getDefaultExercises()

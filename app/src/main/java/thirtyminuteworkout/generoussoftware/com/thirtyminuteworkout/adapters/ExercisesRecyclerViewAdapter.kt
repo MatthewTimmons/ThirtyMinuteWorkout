@@ -24,9 +24,14 @@ class ExercisesRecyclerViewAdapter(var exercises:List<Exercise>, val customWorko
     }
 
     override fun onBindViewHolder(exerciseViewHolder: ExerciseViewHolder, i: Int) {
-        //TODO Bind view holder
 
         val currentExercise = exercises.get(i);
+
+        // Set notes view if applicable
+        if (!currentExercise.notes.equals("")) {
+            exerciseViewHolder.notesTextView.visibility = View.VISIBLE
+            exerciseViewHolder.notesTextView.text = currentExercise.notes
+        }
 
         // Set universal views
         exerciseViewHolder.machineNumberTextView.text = currentExercise.machineNumber.toString()
@@ -56,13 +61,13 @@ class ExercisesRecyclerViewAdapter(var exercises:List<Exercise>, val customWorko
             }
 
             if (customWorkoutFlag) {
-                exerciseViewHolder.repsbuttons.get(i).setOnClickListener {
-                    val newRepsValue = currentExercise.numberOfReps + buttonValues.get(i)
-                    currentExercise.numberOfReps = if (newRepsValue >= 0) newRepsValue else 0
-
-                    // TODO Update UI through attaching the viewmodel instead of manually calling the update.
-                    exerciseViewHolder.currentRepsTextView.text = currentExercise.numberOfReps.toString()
-                }
+//                exerciseViewHolder.repsbuttons.get(i).setOnClickListener {
+//                    val newRepsValue = currentExercise.numberOfReps + buttonValues.get(i)
+//                    currentExercise.numberOfReps = if (newRepsValue >= 0) newRepsValue else 0
+//
+//                    // TODO Update UI through attaching the viewmodel instead of manually calling the update.
+//                    exerciseViewHolder.currentRepsTextView.text = currentExercise.numberOfReps.toString()
+//                }
             }
         }
     }
@@ -72,6 +77,7 @@ class ExercisesRecyclerViewAdapter(var exercises:List<Exercise>, val customWorko
         var machineNameTextView = itemView.machine_name_text_view
         var lastWeightTextView = itemView.last_weight_text_view
         var lastRepsTextView = itemView.last_number_of_reps_text_view
+        var notesTextView = itemView.notes_text_view
         var currentWeightTextView = itemView.current_weight_text_view
         var currentRepsTextView = itemView.current_reps_text_view
         var subtractFivePoundsButton = itemView.subtract_five_pounds

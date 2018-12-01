@@ -4,12 +4,20 @@ import android.arch.persistence.room.Dao
 import android.arch.persistence.room.Insert
 import android.arch.persistence.room.Query
 import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.Exercise
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.ExerciseSession
 import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.Workout
+import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.WorkoutSession
 
 @Dao
 interface WorkoutDao {
 
-    @Query("SELECT * from Exercise")
+    @Insert()
+    fun insert(exerciseSession: ExerciseSession)
+
+    @Insert()
+    fun insert(workoutSession: WorkoutSession)
+
+    /*@Query("SELECT * from Exercise")
     fun getAllExercisesFor(workout: Workout): List<Exercise>
 
     @Insert()
@@ -25,5 +33,5 @@ interface WorkoutDao {
     fun insert(workout: Workout)
 
     @Query("DELETE from Workout")
-    fun deleteAllWorkouts()
+    fun deleteAllWorkouts()*/
 }

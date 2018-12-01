@@ -11,6 +11,7 @@ import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.R
 class SelectWorkoutActivity: AppCompatActivity() {
     lateinit var manualWorkoutButton: Button
     lateinit var timedWorkoutButton: Button
+    lateinit var editNotesButton: Button
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -19,6 +20,7 @@ class SelectWorkoutActivity: AppCompatActivity() {
         // Set views
         manualWorkoutButton = findViewById(R.id.manual_workout_button)
         timedWorkoutButton = findViewById(R.id.timed_workout_button)
+        editNotesButton = findViewById(R.id.settings_button)
 
         // Set click listeners
         manualWorkoutButton.setOnClickListener {
@@ -28,6 +30,11 @@ class SelectWorkoutActivity: AppCompatActivity() {
 
         //TODO Add timed workout later.
         timedWorkoutButton.setOnClickListener {
+            Toast.makeText(this@SelectWorkoutActivity, "This feature will be added later.", Toast.LENGTH_SHORT).show()
+        }
+
+        //TODO Add edit notes later.
+        editNotesButton.setOnClickListener {
             Toast.makeText(this@SelectWorkoutActivity, "This feature will be added later.", Toast.LENGTH_SHORT).show()
         }
     }
