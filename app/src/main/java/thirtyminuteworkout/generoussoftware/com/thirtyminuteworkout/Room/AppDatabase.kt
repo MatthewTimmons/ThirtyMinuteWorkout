@@ -7,7 +7,7 @@ import android.content.Context
 import android.os.AsyncTask
 import thirtyminuteworkout.generoussoftware.com.thirtyminuteworkout.models.*
 
-@Database(entities = [WorkoutSession::class, ExerciseSession::class], version = 1)
+@Database(entities = [WorkoutRoutine::class, WorkoutSession::class, ExerciseSession::class], version = 1)
 abstract class AppDatabase : RoomDatabase() {
 
     abstract fun workoutDao(): WorkoutDao
